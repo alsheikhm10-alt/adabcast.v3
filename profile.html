@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>أدب كاست — موسوعة أدبية عربية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-bg-dark text-slate-100 min-h-screen">
+
+<!-- ===== TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-bg-dark/90 backdrop-blur-md border-b border-primary/10 px-4 lg:px-8 h-16 flex items-center justify-between">
+  <div class="flex items-center gap-6">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-bg-dark">
+        <span class="ms text-lg" style="font-variation-settings:'FILL' 1">auto_stories</span>
+      </div>
+      <span class="amiri text-xl font-bold text-primary">أدب كاست</span>
+    </a>
+    <!-- Nav links desktop -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الرئيسية</a>
+      <a href="library.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">المكتبة</a>
+      <a href="texts.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">النصوص</a>
+      <a href="player.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">المشغّل</a>
+      <a href="submit.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">دعوة للكتابة</a>
+      <a href="studio.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الاستوديو</a>
+      <a href="profile.html" class="nav-link active px-3 py-1.5 rounded-lg text-sm hover:text-primary">ملفي</a>
+    </nav>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- Search -->
+    <div class="relative hidden md:block">
+      <span class="ms absolute right-3 top-1/2 -translate-y-1/2 text-primary/50" style="font-size:1.1rem">search</span>
+      <input class="pr-9 pl-4 py-2 rounded-full text-sm w-52 bg-bg-card border border-primary/20 text-slate-100 placeholder-slate-400 focus:border-primary/50 transition-colors" placeholder="ابحث عن قصيدة أو كاتب..."/>
+    </div>
+    <button class="w-9 h-9 rounded-full bg-bg-card border border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-bg-dark hover:border-primary transition-all">
+      <span class="ms">notifications</span>
+    </button>
+    <a href="profile.html" class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/30 block hover:border-primary/60 transition-all">
+      <img src="https://i.pravatar.cc/40?img=3" class="w-full h-full object-cover"/>
+    </a>
+  </div>
+</header>
+
+<!-- ===== PAGES WRAPPER ===== -->
+<div id="pages">
+
+<!-- ============================================================ -->
+<!-- PROFILE PAGE -->
+<!-- ============================================================ -->
+<div id="page-profile" class="page active">
+  <div class="flex flex-col lg:flex-row flex-1 gap-0">
+
+    <!-- Sidebar -->
+    <aside class="w-full lg:w-72 border-b lg:border-b-0 lg:border-l border-primary/10 bg-bg-sidebar p-6">
+      <!-- Avatar -->
+      <div class="flex flex-col items-center text-center mb-8">
+        <div class="relative mb-3">
+          <img src="https://i.pravatar.cc/100?img=3" class="w-24 h-24 rounded-full border-4 border-primary/30"/>
+          <button class="absolute bottom-0 left-0 w-7 h-7 bg-primary text-bg-dark rounded-full flex items-center justify-center shadow border-2 border-bg-dark">
+            <span class="ms" style="font-size:0.9rem">edit</span>
+          </button>
+        </div>
+        <h2 class="font-bold text-lg">أحمد محمد</h2>
+        <p class="text-xs text-slate-500">مشترك مميز</p>
+        <div class="flex gap-4 mt-3 text-center">
+          <div><p class="font-bold text-sm text-primary">٢٣</p><p class="text-xs text-slate-500">منشور</p></div>
+          <div class="border-r border-primary/10"></div>
+          <div><p class="font-bold text-sm text-primary">٨٤٢</p><p class="text-xs text-slate-500">متابع</p></div>
+          <div class="border-r border-primary/10"></div>
+          <div><p class="font-bold text-sm text-primary">١٢٠</p><p class="text-xs text-slate-500">يتابع</p></div>
+        </div>
+      </div>
+      <!-- Nav -->
+      <nav class="space-y-1">
+        <a class="sidebar-link active flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm font-medium" href="#">
+          <span class="ms">person</span>الملف الشخصي
+        </a>
+        <a class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-400 hover:text-slate-200" href="#">
+          <span class="ms">library_music</span>مكتبتي
+        </a>
+        <a class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-400 hover:text-slate-200" href="#">
+          <span class="ms">bookmark</span>المحفوظات
+        </a>
+        <a class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-400 hover:text-slate-200" href="#">
+          <span class="ms">history</span>سجل الاستماع
+        </a>
+        <a class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-400 hover:text-slate-200" href="#">
+          <span class="ms">security</span>الأمان
+        </a>
+        <a class="sidebar-link flex items-center gap-3 px-4 py-2.5 rounded-lg text-sm text-slate-400 hover:text-slate-200" href="#">
+          <span class="ms">notifications</span>الإشعارات
+        </a>
+      </nav>
+    </aside>
+
+    <!-- Main profile content -->
+    <main class="flex-1 p-8">
+      <h1 class="text-2xl font-bold mb-6">الملف الشخصي</h1>
+
+      <!-- Edit form -->
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-6 mb-6">
+        <h3 class="font-bold mb-5">المعلومات الأساسية</h3>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">الاسم الكامل</label>
+            <input type="text" value="أحمد محمد" class="w-full px-4 py-2.5 rounded-lg text-sm"/>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">اسم المستخدم</label>
+            <input type="text" value="@ahmad_m" class="w-full px-4 py-2.5 rounded-lg text-sm"/>
+          </div>
+          <div class="md:col-span-2">
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">نبذة</label>
+            <textarea rows="3" class="w-full px-4 py-2.5 rounded-lg text-sm resize-none">كاتب وقارئ شغوف بالأدب العربي الحديث. أسعى لتقديم الشعر والقصة بصوت يقترب من الروح.</textarea>
+          </div>
+        </div>
+        <button class="btn-primary mt-4 px-6 py-2.5 rounded-full text-sm">حفظ التعديلات</button>
+      </div>
+
+      <!-- Listening history -->
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-6">
+        <h3 class="font-bold mb-5">سجل الاستماع الأخير</h3>
+        <div class="space-y-3">
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=80&q=80" class="w-11 h-11 rounded-lg object-cover"/>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-sm truncate">نشيد النهر</p>
+              <p class="text-xs text-slate-500">أحمد المنصوري · منذ ساعتين</p>
+            </div>
+            <div class="w-20 h-1 bg-primary/20 rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width:80%"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=80&q=80" class="w-11 h-11 rounded-lg object-cover"/>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-sm truncate">أدب المهجر: جبران</p>
+              <p class="text-xs text-slate-500">بودكاست الفكر العربي · أمس</p>
+            </div>
+            <div class="w-20 h-1 bg-primary/20 rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width:55%"></div>
+            </div>
+          </div>
+          <div class="flex items-center gap-3">
+            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=80&q=80" class="w-11 h-11 rounded-lg object-cover"/>
+            <div class="flex-1 min-w-0">
+              <p class="font-bold text-sm truncate">المعلقات السبع</p>
+              <p class="text-xs text-slate-500">رواية صوتية · ٣ يناير</p>
+            </div>
+            <div class="w-20 h-1 bg-primary/20 rounded-full overflow-hidden">
+              <div class="h-full bg-primary rounded-full" style="width:100%"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </main>
+  </div>
+</div>
+
+</div>
+
+<!-- Floating chat button -->
+<div class="fixed bottom-7 left-7 z-[100]">
+  <button class="w-14 h-14 bg-primary text-bg-dark rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center overflow-hidden relative group">
+    <span class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 rounded-full transition-transform duration-500"></span>
+    <span class="ms text-2xl relative z-10" style="font-variation-settings:'FILL' 1;animation:pulse-ring 2s ease-out infinite;">chat</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

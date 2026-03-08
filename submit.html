@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>أدب كاست — موسوعة أدبية عربية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-bg-dark text-slate-100 min-h-screen">
+
+<!-- ===== TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-bg-dark/90 backdrop-blur-md border-b border-primary/10 px-4 lg:px-8 h-16 flex items-center justify-between">
+  <div class="flex items-center gap-6">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-bg-dark">
+        <span class="ms text-lg" style="font-variation-settings:'FILL' 1">auto_stories</span>
+      </div>
+      <span class="amiri text-xl font-bold text-primary">أدب كاست</span>
+    </a>
+    <!-- Nav links desktop -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الرئيسية</a>
+      <a href="library.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">المكتبة</a>
+      <a href="texts.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">النصوص</a>
+      <a href="player.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">المشغّل</a>
+      <a href="submit.html" class="nav-link active px-3 py-1.5 rounded-lg text-sm hover:text-primary">دعوة للكتابة</a>
+      <a href="studio.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الاستوديو</a>
+      <a href="profile.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">ملفي</a>
+    </nav>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- Search -->
+    <div class="relative hidden md:block">
+      <span class="ms absolute right-3 top-1/2 -translate-y-1/2 text-primary/50" style="font-size:1.1rem">search</span>
+      <input class="pr-9 pl-4 py-2 rounded-full text-sm w-52 bg-bg-card border border-primary/20 text-slate-100 placeholder-slate-400 focus:border-primary/50 transition-colors" placeholder="ابحث عن قصيدة أو كاتب..."/>
+    </div>
+    <button class="w-9 h-9 rounded-full bg-bg-card border border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-bg-dark hover:border-primary transition-all">
+      <span class="ms">notifications</span>
+    </button>
+    <a href="profile.html" class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/30 block hover:border-primary/60 transition-all">
+      <img src="https://i.pravatar.cc/40?img=3" class="w-full h-full object-cover"/>
+    </a>
+  </div>
+</header>
+
+<!-- ===== PAGES WRAPPER ===== -->
+<div id="pages">
+
+<!-- ============================================================ -->
+<!-- SUBMIT PAGE -->
+<!-- ============================================================ -->
+<div id="page-submit" class="page active">
+  <div class="px-6 lg:px-12 py-8 max-w-3xl mx-auto w-full flex-1">
+
+    <!-- Header card -->
+    <div class="bg-gradient-to-l from-primary/20 to-transparent border border-primary/20 rounded-2xl p-8 mb-8">
+      <h1 class="amiri text-3xl font-bold mb-2">دعوة مفتوحة للكتابة</h1>
+      <p class="text-slate-300 leading-relaxed">نرحّب بالنصوص الشعرية والسردية والقراءات النقدية ضمن رؤية تحريرية تُعبّر الكاتب وتمنحه سياقه.</p>
+    </div>
+
+    <!-- Requirements -->
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mb-8">
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-4">
+        <span class="ms text-primary text-2xl mb-2 block" style="font-variation-settings:'FILL' 1">flight</span>
+        <h3 class="font-bold text-sm mb-1">نصوص شعرية</h3>
+        <p class="text-xs text-slate-500">حر، تفعيلة، أشكال مفتوحة</p>
+      </div>
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-4">
+        <span class="ms text-primary text-2xl mb-2 block" style="font-variation-settings:'FILL' 1">edit_note</span>
+        <h3 class="font-bold text-sm mb-1">قصص قصيرة</h3>
+        <p class="text-xs text-slate-500">سرد مكثّف أو تجريبي</p>
+      </div>
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-4">
+        <span class="ms text-primary text-2xl mb-2 block" style="font-variation-settings:'FILL' 1">analytics</span>
+        <h3 class="font-bold text-sm mb-1">قراءات نقدية</h3>
+        <p class="text-xs text-slate-500">مقاربات ودراسات نصية</p>
+      </div>
+    </div>
+
+    <!-- Form -->
+    <div class="bg-bg-card border border-primary/10 rounded-2xl p-6">
+      <h2 class="amiri text-xl font-bold mb-6">إرسال نص للمراجعة</h2>
+      
+      <!-- Stepper -->
+      <div class="flex items-center justify-between mb-8 relative">
+        <div class="absolute top-4 right-8 left-8 h-0.5 bg-primary/10 -z-10"></div>
+        <div class="flex flex-col items-center gap-1">
+          <div class="w-8 h-8 rounded-full bg-primary text-bg-dark font-bold text-sm flex items-center justify-center"><span class="ms text-sm">check</span></div>
+          <span class="text-xs text-primary font-bold">معلوماتك</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <div class="w-8 h-8 rounded-full bg-primary text-bg-dark font-bold text-sm flex items-center justify-center">٢</div>
+          <span class="text-xs text-primary font-bold">النص</span>
+        </div>
+        <div class="flex flex-col items-center gap-1">
+          <div class="w-8 h-8 rounded-full border border-primary/30 text-slate-400 font-bold text-sm flex items-center justify-center">٣</div>
+          <span class="text-xs text-slate-500">الإرسال</span>
+        </div>
+      </div>
+
+      <div class="space-y-4">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">الاسم الكامل</label>
+            <input type="text" class="w-full px-4 py-2.5 rounded-lg text-sm" placeholder="الاسم كما تُحب الظهور"/>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">البريد الإلكتروني</label>
+            <input type="email" class="w-full px-4 py-2.5 rounded-lg text-sm" placeholder="email@example.com"/>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">نوع النص</label>
+            <select class="w-full px-4 py-2.5 rounded-lg text-sm">
+              <option value="">— اختر —</option>
+              <option>نص شعري</option>
+              <option>قصة قصيرة</option>
+              <option>قراءة نقدية</option>
+              <option>مقاربة نصية</option>
+            </select>
+          </div>
+          <div>
+            <label class="text-xs font-bold text-slate-400 mb-1.5 block">عنوان النص</label>
+            <input type="text" class="w-full px-4 py-2.5 rounded-lg text-sm" placeholder="عنوان العمل"/>
+          </div>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 mb-1.5 block">النص</label>
+          <textarea rows="7" class="w-full px-4 py-2.5 rounded-lg text-sm resize-none" placeholder="اكتب النص هنا..."></textarea>
+        </div>
+        <div>
+          <label class="text-xs font-bold text-slate-400 mb-1.5 block">ملاحظة للمحرر (اختياري)</label>
+          <textarea rows="3" class="w-full px-4 py-2.5 rounded-lg text-sm resize-none" placeholder="أي سياق أو ملاحظة تراها مهمة..."></textarea>
+        </div>
+        <div class="flex items-center justify-between pt-2">
+          <p class="text-xs text-slate-500">جميع النصوص تُراجع قبل النشر للحفاظ على جودة المحتوى.</p>
+          <button class="btn-primary px-6 py-2.5 rounded-full text-sm">إرسال للمراجعة</button>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+</div>
+
+<!-- Floating chat button -->
+<div class="fixed bottom-7 left-7 z-[100]">
+  <button class="w-14 h-14 bg-primary text-bg-dark rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center overflow-hidden relative group">
+    <span class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 rounded-full transition-transform duration-500"></span>
+    <span class="ms text-2xl relative z-10" style="font-variation-settings:'FILL' 1;animation:pulse-ring 2s ease-out infinite;">chat</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

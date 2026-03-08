@@ -1,0 +1,89 @@
+* { box-sizing: border-box; }
+body { 
+  font-family: 'Noto Sans Arabic', sans-serif; 
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  background-attachment: fixed;
+  min-height: 100vh;
+}
+.amiri { font-family: 'Amiri', serif; }
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: rgba(255,255,255,0.1); border-radius: 10px; }
+::-webkit-scrollbar-thumb { background: rgba(102,126,234,0.6); border-radius: 10px; }
+::-webkit-scrollbar-thumb:hover { background: #667eea; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+.page { display: none; }
+.page.active { display: flex; flex-direction: column; min-height: calc(100vh - 64px); }
+.nav-link { transition: color 0.2s; }
+.nav-link.active { color: #667eea; font-weight: 700; }
+.progress-bar { cursor: pointer; }
+@keyframes pulse-ring { 0% { transform: scale(0.95); opacity: 1; } 70% { transform: scale(1.1); opacity: 0; } 100% { transform: scale(0.95); opacity: 0; } }
+.pulse-ring::before { content: ''; position: absolute; inset: -6px; border-radius: 50%; border: 2px solid #667eea; animation: pulse-ring 1.8s ease-out infinite; }
+@keyframes waveform { 0%, 100% { height: 8px; } 50% { height: 24px; } }
+.wave-bar { animation: waveform 1s ease-in-out infinite; background: #667eea; border-radius: 2px; width: 3px; }
+.wave-bar:nth-child(2) { animation-delay: 0.15s; }
+.wave-bar:nth-child(3) { animation-delay: 0.3s; }
+.wave-bar:nth-child(4) { animation-delay: 0.45s; }
+.wave-bar:nth-child(5) { animation-delay: 0.6s; }
+.sidebar-link { transition: all 0.18s; }
+.sidebar-link.active { background: rgba(102,126,234,0.15); color: #667eea; }
+.card-hover { transition: transform 0.2s, box-shadow 0.2s; }
+.card-hover:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(102,126,234,0.2); }
+.btn-primary { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; font-weight: 700; transition: all 0.2s; }
+.btn-primary:hover { background: linear-gradient(135deg, #764ba2 0%, #667eea 100%); box-shadow: 0 4px 20px rgba(102,126,234,0.4); }
+.tag { background: rgba(102,126,234,0.1); color: #667eea; border: 1px solid rgba(102,126,234,0.2); border-radius: 9999px; padding: 2px 12px; font-size: 0.72rem; font-weight: 700; }
+input, select, textarea { background: rgba(255,255,255,0.9) !important; border: 1px solid rgba(102,126,234,0.2) !important; color: #2d3748 !important; }
+input:focus, select:focus, textarea:focus { border-color: #667eea !important; outline: none; box-shadow: 0 0 0 2px rgba(102,126,234,0.15); }
+input::placeholder, textarea::placeholder { color: rgba(45,55,72,0.6) !important; }
+option { background: #f8f9fa; color: #2d3748; }
+.stat-card { background: rgba(255,255,255,0.9); border: 1px solid rgba(102,126,234,0.2); border-radius: 0.75rem; padding: 1.25rem; backdrop-filter: blur(10px); }
+.upload-zone { border: 2px dashed rgba(102,126,234,0.4); border-radius: 1rem; transition: all 0.2s; }
+.upload-zone:hover { border-color: #667eea; background: rgba(102,126,234,0.05); }
+.ms { font-family: 'Material Symbols Outlined'; font-size: 1.2rem; line-height: 1; display: inline-block; vertical-align: middle; }
+
+/* Glassmorphism effect for cards */
+.glass-card {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+/* Beautiful gradient backgrounds */
+.gradient-bg {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+}
+
+.gradient-text {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Enhanced hover effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(102, 126, 234, 0.3);
+}
+
+/* Animated background particles */
+@keyframes float {
+  0%, 100% { transform: translateY(0px) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+}
+
+.floating-shape {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(102, 126, 234, 0.1);
+  animation: float 6s ease-in-out infinite;
+}
+
+.floating-shape:nth-child(1) { top: 10%; left: 10%; animation-delay: 0s; }
+.floating-shape:nth-child(2) { top: 20%; right: 10%; animation-delay: 2s; }
+.floating-shape:nth-child(3) { bottom: 20%; left: 20%; animation-delay: 4s; }

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<meta name="description" content="أدب كاست - منصة أدبية عربية للاستماع إلى القصائد والروايات بصوت نخبة من الرواة والمثقفين العرب"/>
+<meta name="keywords" content="أدب عربي, قصائد, روايات, بودكاست, استماع, أدب كاست"/>
+<meta property="og:title" content="أدب كاست - موسوعة أدبية عربية"/>
+<meta property="og:description" content="استمع إلى أجمل الأدب العربي بصوت الرواة المحترفين"/>
+<meta property="og:image" content="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1200&q=80"/>
+<meta property="og:url" content="https://adabcast.com"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<link rel="canonical" href="https://adabcast.com"/>
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>📖</text></svg>"/>
+<title>أدب كاست — موسوعة أدبية عربية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-bg-dark text-text-primary min-h-screen">
+
+<!-- Floating shapes for visual appeal -->
+<div class="floating-shape w-16 h-16 top-10 left-10"></div>
+<div class="floating-shape w-12 h-12 top-20 right-20"></div>
+<div class="floating-shape w-20 h-20 bottom-20 left-20"></div>
+<div class="floating-shape w-8 h-8 bottom-40 right-10"></div>
+
+<!-- Preloader -->
+<div id="preloader" class="fixed inset-0 bg-bg-dark flex items-center justify-center z-50">
+  <div class="animate-spin rounded-full h-12 w-12 border-b-2 border-primary"></div>
+</div>
+
+<!-- Skip to content -->
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:top-4 focus:left-4 bg-primary text-bg-dark px-4 py-2 rounded-lg z-50">تخطي إلى المحتوى الرئيسي</a>
+
+<!-- ===== TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-bg-dark/95 backdrop-blur-md border-b border-primary/10 px-4 lg:px-8 h-16 flex items-center justify-between shadow-lg">
+  <div class="flex items-center gap-6">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-bg-dark">
+        <span class="ms text-lg" style="font-variation-settings:'FILL' 1">auto_stories</span>
+      </div>
+      <span class="amiri text-xl font-bold text-primary">أدب كاست</span>
+    </a>
+    <!-- Nav links desktop -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="nav-link active px-3 py-1.5 rounded-lg text-sm hover:text-primary">الرئيسية</a>
+      <a href="library.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">المكتبة</a>
+      <a href="texts.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">النصوص</a>
+      <a href="player.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">المشغّل</a>
+      <a href="submit.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">دعوة للكتابة</a>
+      <a href="studio.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">الاستوديو</a>
+      <a href="profile.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-text-secondary">ملفي</a>
+    </nav>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- Search -->
+    <div class="relative hidden md:block">
+      <span class="ms absolute right-3 top-1/2 -translate-y-1/2 text-primary/70" style="font-size:1.1rem">search</span>
+      <input class="pr-9 pl-4 py-2 rounded-full text-sm w-52 bg-bg-card border border-primary/20 text-text-primary placeholder-text-secondary focus:border-primary/50 transition-colors" placeholder="ابحث عن قصيدة أو كاتب..."/>
+    </div>
+    <button onclick="toggleDarkMode()" class="w-9 h-9 rounded-full bg-bg-card border border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-bg-light hover:border-primary transition-all" aria-label="تبديل الوضع المظلم">
+      <span class="ms" id="dark-mode-icon">dark_mode</span>
+    </button>
+    <button class="w-9 h-9 rounded-full bg-bg-card border border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-bg-light hover:border-primary transition-all">
+      <span class="ms">notifications</span>
+    </button>
+    <a href="profile.html" class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/30 block hover:border-primary/60 transition-all">
+      <img src="https://i.pravatar.cc/40?img=3" class="w-full h-full object-cover"/>
+    </a>
+  </div>
+</header>
+
+<!-- ===== PAGES WRAPPER ===== -->
+<div id="pages">
+
+<!-- ============================================================ -->
+<!-- HOME PAGE -->
+<!-- ============================================================ -->
+<div id="page-home" class="page active">
+
+  <!-- Hero Banner -->
+  <section class="relative overflow-hidden" style="height:480px" id="main-content">
+    <div class="absolute inset-0" style="background:linear-gradient(to left, rgba(10,10,10,0.85) 0%, rgba(10,10,10,0.4) 60%), url('https://images.unsplash.com/photo-1532012197267-da84d127e765?w=1600&q=80') center/cover"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-bg-dark via-transparent to-transparent"></div>
+    <div class="relative h-full flex flex-col justify-center px-8 lg:px-20 max-w-2xl">
+      <span class="tag mb-4 w-fit">مميز اليوم</span>
+      <h1 class="amiri text-4xl lg:text-6xl font-bold leading-tight mb-4 text-white drop-shadow-lg">عالم من الأدب العربي<br/>في متناول يدك</h1>
+      <p class="text-text-secondary text-lg mb-8 leading-relaxed">استمع إلى أجمل القصائد والروايات بصوت نخبة من الرواة والمثقفين العرب.</p>
+      <div class="flex gap-3">
+        <a href="player.html" class="btn-primary px-6 py-3 rounded-full flex items-center gap-2 inline-flex">
+          <span class="ms" style="font-variation-settings:'FILL' 1">play_circle</span>
+          ابدأ الاستماع
+        </a>
+        <a href="library.html" class="px-6 py-3 rounded-full border border-primary/30 bg-bg-card/50 hover:bg-bg-card hover:border-primary/50 transition-all inline-block text-text-primary hover:text-primary">
+          اكتشف المزيد
+        </a>
+      </div>
+    </div>
+    <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-2">
+      <div class="w-6 h-1.5 rounded-full bg-primary"></div>
+      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+      <div class="w-1.5 h-1.5 rounded-full bg-white/30"></div>
+    </div>
+  </section>
+
+  <div class="px-6 lg:px-12 py-10 flex-1">
+
+    <!-- Trending -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold flex items-center gap-2 text-white drop-shadow-lg"><span class="ms text-primary">trending_up</span> الأكثر تداولاً</h2>
+        <a href="library.html" class="text-primary text-sm font-semibold hover:underline">عرض الكل</a>
+      </div>
+      <div class="flex gap-5 overflow-x-auto no-scrollbar pb-2">
+        <!-- cards -->
+        <a href="player.html" class="flex-none w-52 hover-lift block">
+          <div class="relative aspect-square rounded-xl overflow-hidden mb-3 glass-card">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=400&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              <span class="ms text-white text-5xl" style="font-variation-settings:'FILL' 1">play_circle</span>
+            </div>
+            <span class="absolute top-2 right-2 tag text-xs">شعر</span>
+          </div>
+          <h4 class="font-bold truncate text-sm text-white drop-shadow-lg">نشيد النهر</h4>
+          <p class="text-xs text-text-secondary">أحمد المنصوري · 05:15</p>
+        </a>
+        <a href="player.html" class="flex-none w-52 hover-lift block">
+          <div class="relative aspect-square rounded-xl overflow-hidden mb-3 glass-card">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=400&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              <span class="ms text-white text-5xl" style="font-variation-settings:'FILL' 1">play_circle</span>
+            </div>
+            <span class="absolute top-2 right-2 tag text-xs">رواية</span>
+          </div>
+          <h4 class="font-bold truncate text-sm text-white drop-shadow-lg">ألف ليلة وليلة</h4>
+          <p class="text-xs text-text-secondary">دراما إذاعية · 45:00</p>
+        </a>
+        <a href="player.html" class="flex-none w-52 hover-lift block">
+          <div class="relative aspect-square rounded-xl overflow-hidden mb-3 glass-card">
+            <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=400&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              <span class="ms text-white text-5xl" style="font-variation-settings:'FILL' 1">play_circle</span>
+            </div>
+            <span class="absolute top-2 right-2 tag text-xs">بودكاست</span>
+          </div>
+          <h4 class="font-bold truncate text-sm text-white drop-shadow-lg">أدب المهجر: جبران</h4>
+          <p class="text-xs text-text-secondary">بودكاست الفكر العربي · 28:30</p>
+        </a>
+        <a href="player.html" class="flex-none w-52 hover-lift block">
+          <div class="relative aspect-square rounded-xl overflow-hidden mb-3 glass-card">
+            <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=400&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              <span class="ms text-white text-5xl" style="font-variation-settings:'FILL' 1">play_circle</span>
+            </div>
+            <span class="absolute top-2 right-2 tag text-xs">فصحى</span>
+          </div>
+          <h4 class="font-bold truncate text-sm text-white drop-shadow-lg">المعلقات السبع</h4>
+          <p class="text-xs text-text-secondary">رواية صوتية · 01:12:00</p>
+        </a>
+        <a href="player.html" class="flex-none w-52 hover-lift block">
+          <div class="relative aspect-square rounded-xl overflow-hidden mb-3 glass-card">
+            <img src="https://images.unsplash.com/photo-1491841573634-28140fc7ced7?w=400&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-black/20 opacity-0 hover:opacity-100 transition flex items-center justify-center">
+              <span class="ms text-white text-5xl" style="font-variation-settings:'FILL' 1">play_circle</span>
+            </div>
+            <span class="absolute top-2 right-2 tag text-xs">فلسفة</span>
+          </div>
+          <h4 class="font-bold truncate text-sm text-white drop-shadow-lg">فلسفة التنوير</h4>
+          <p class="text-xs text-text-secondary">سلسلة الوعي الفكري · 18:00</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Latest Releases -->
+    <section class="mb-12">
+      <div class="flex items-center justify-between mb-6">
+        <h2 class="text-xl font-bold flex items-center gap-2 text-white drop-shadow-lg"><span class="ms text-primary">new_releases</span> أحدث الإصدارات</h2>
+        <a href="library.html" class="text-primary text-sm font-semibold hover:underline">عرض الكل</a>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <a href="player.html" class="flex items-center gap-4 p-4 glass-card hover-lift block">
+          <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?w=120&q=80" class="w-16 h-16 rounded-lg object-cover flex-none"/>
+          <div class="flex-1 min-w-0">
+            <h5 class="font-bold truncate text-sm text-white drop-shadow-lg">مدن الملح - الجزء الأول</h5>
+            <p class="text-xs text-text-secondary mb-2">عبد الرحمن منيف</p>
+            <div class="flex gap-3 text-xs text-text-secondary">
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">schedule</span>45 د</span>
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">bar_chart</span>متوسط</span>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full glass-card text-primary flex items-center justify-center hover:bg-primary hover:text-white transition flex-none">
+            <span class="ms" style="font-variation-settings:'FILL' 1">play_arrow</span>
+          </button>
+        </a>
+        <a href="player.html" class="flex items-center gap-4 p-4 glass-card hover-lift block">
+          <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?w=120&q=80" class="w-16 h-16 rounded-lg object-cover flex-none"/>
+          <div class="flex-1 min-w-0">
+            <h5 class="font-bold truncate text-sm text-white drop-shadow-lg">تحولات الشعر المعاصر</h5>
+            <p class="text-xs text-text-secondary mb-2">د. يوسف زيدان</p>
+            <div class="flex gap-3 text-xs text-text-secondary">
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">schedule</span>28 د</span>
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">bar_chart</span>عميق</span>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full glass-card text-primary flex items-center justify-center hover:bg-primary hover:text-white transition flex-none">
+            <span class="ms" style="font-variation-settings:'FILL' 1">play_arrow</span>
+          </button>
+        </a>
+        <a href="player.html" class="flex items-center gap-4 p-4 glass-card hover-lift block">
+          <img src="https://images.unsplash.com/photo-1550399105-c4db5fb85c18?w=120&q=80" class="w-16 h-16 rounded-lg object-cover flex-none"/>
+          <div class="flex-1 min-w-0">
+            <h5 class="font-bold truncate text-sm text-white drop-shadow-lg">رسالة الغفران - ملخص</h5>
+            <p class="text-xs text-text-secondary mb-2">أبو العلاء المعري</p>
+            <div class="flex gap-3 text-xs text-text-secondary">
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">schedule</span>35 د</span>
+              <span class="flex items-center gap-1"><span class="ms" style="font-size:0.9rem">bar_chart</span>تراثي</span>
+            </div>
+          </div>
+          <button class="w-9 h-9 rounded-full glass-card text-primary flex items-center justify-center hover:bg-primary hover:text-white transition flex-none">
+            <span class="ms" style="font-variation-settings:'FILL' 1">play_arrow</span>
+          </button>
+        </a>
+      </div>
+    </section>
+
+    <!-- Categories -->
+    <section>
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-white drop-shadow-lg"><span class="ms text-primary">category</span> استكشف الأقسام</h2>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+        <a href="library.html" class="glass-card rounded-xl p-5 text-center hover-lift block">
+          <span class="ms text-primary text-4xl mb-3 block text-white drop-shadow-lg" style="font-variation-settings:'FILL' 1">flight</span>
+          <h3 class="font-bold">شعر</h3>
+          <p class="text-xs text-text-secondary mt-1">٢٤٣ قصيدة</p>
+        </a>
+        <a href="library.html" class="glass-card rounded-xl p-5 text-center hover-lift block">
+          <span class="ms text-primary text-4xl mb-3 block text-white drop-shadow-lg" style="font-variation-settings:'FILL' 1">menu_book</span>
+          <h3 class="font-bold">نثر</h3>
+          <p class="text-xs text-text-secondary mt-1">١١٧ نص</p>
+        </a>
+        <a href="library.html" class="glass-card rounded-xl p-5 text-center hover-lift block">
+          <span class="ms text-primary text-4xl mb-3 block text-white drop-shadow-lg" style="font-variation-settings:'FILL' 1">record_voice_over</span>
+          <h3 class="font-bold">قصص</h3>
+          <p class="text-xs text-text-secondary mt-1">٨٨ قصة</p>
+        </a>
+        <a href="library.html" class="glass-card rounded-xl p-5 text-center hover-lift block">
+          <span class="ms text-primary text-4xl mb-3 block text-white drop-shadow-lg" style="font-variation-settings:'FILL' 1">neurology</span>
+          <h3 class="font-bold">فلسفة</h3>
+          <p class="text-xs text-text-secondary mt-1">٤٦ مقال</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="mt-12">
+      <h2 class="text-xl font-bold mb-6 flex items-center gap-2 text-white drop-shadow-lg"><span class="ms text-primary">star</span> آراء المستمعين</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="glass-card rounded-xl p-6 hover-lift">
+          <p class="text-sm text-text-secondary mb-4">"منصة رائعة لعشاق الأدب العربي. الجودة الصوتية ممتازة والمحتوى متنوع ومفيد."</p>
+          <div class="flex items-center gap-2">
+            <img src="https://i.pravatar.cc/40?img=1" class="w-8 h-8 rounded-full" loading="lazy" alt="فاطمة أحمد"/>
+            <div>
+              <p class="text-sm font-bold">فاطمة أحمد</p>
+              <p class="text-xs text-text-secondary">مستمعة منذ 6 أشهر</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl p-6 hover-lift">
+          <p class="text-sm text-text-secondary mb-4">"أحب كيف يجمعون بين الأدب الكلاسيكي والمعاصر. تجربة استماع فريدة."</p>
+          <div class="flex items-center gap-2">
+            <img src="https://i.pravatar.cc/40?img=2" class="w-8 h-8 rounded-full" loading="lazy" alt="أحمد محمد"/>
+            <div>
+              <p class="text-sm font-bold">أحمد محمد</p>
+              <p class="text-xs text-text-secondary">مستمع منذ عام</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass-card rounded-xl p-6 hover-lift">
+          <p class="text-sm text-text-secondary mb-4">"منصة مثالية لتعلم الأدب العربي. الرواة محترفون والتسجيلات واضحة."</p>
+          <div class="flex items-center gap-2">
+            <img src="https://i.pravatar.cc/40?img=3" class="w-8 h-8 rounded-full" loading="lazy" alt="سارة علي"/>
+            <div>
+              <p class="text-sm font-bold">سارة علي</p>
+              <p class="text-xs text-text-secondary">مستمعة منذ 3 أشهر</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- Footer -->
+  <footer class="glass-card text-center py-6 text-xs text-text-secondary border-t border-white/20">
+    <div class="flex justify-center gap-4 mb-4">
+      <a href="#" class="text-text-secondary hover:text-primary transition hover:scale-110" aria-label="فيسبوك"><span class="ms">facebook</span></a>
+      <a href="#" class="text-text-secondary hover:text-primary transition hover:scale-110" aria-label="تويتر"><span class="ms">twitter</span></a>
+      <a href="#" class="text-text-secondary hover:text-primary transition hover:scale-110" aria-label="إنستغرام"><span class="ms">instagram</span></a>
+      <a href="#" class="text-text-secondary hover:text-primary transition hover:scale-110" aria-label="يوتيوب"><span class="ms">youtube</span></a>
+    </div>
+    <div class="border-t border-white/20 pt-6 mt-6">
+      <h3 class="font-bold mb-2 text-white drop-shadow-lg">اشترك في النشرة الإخبارية</h3>
+      <p class="text-xs text-text-secondary mb-4">احصل على آخر التحديثات والمحتوى الجديد</p>
+      <div class="flex gap-2 max-w-xs mx-auto">
+        <input type="email" placeholder="البريد الإلكتروني" class="flex-1 px-3 py-2 rounded-lg text-sm bg-bg-card border border-primary/20 text-text-primary placeholder-text-secondary focus:border-primary/50 transition-colors" aria-label="البريد الإلكتروني"/>
+        <button onclick="subscribeNewsletter()" class="btn-primary px-4 py-2 rounded-lg text-sm hover-lift">اشتراك</button>
+      </div>
+    </div>
+    <p class="mt-4 text-text-secondary">© 2026 — أدب كاست · منصة أدبية عربية معاصرة</p>
+  </footer>
+</div>
+
+</div>
+
+<!-- Back to top -->
+<button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-20 left-7 z-40 w-12 h-12 glass-card text-primary rounded-full shadow-lg flex items-center justify-center opacity-0 transition-all hover:scale-110 hover:shadow-xl" id="back-to-top" aria-label="العودة إلى الأعلى">
+  <span class="ms">arrow_upward</span>
+</button>
+
+<!-- Floating chat button -->
+<div class="fixed bottom-7 left-7 z-[100]">
+  <button class="w-14 h-14 bg-primary text-bg-dark rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center overflow-hidden relative group">
+    <span class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 rounded-full transition-transform duration-500"></span>
+    <span class="ms text-2xl relative z-10" style="font-variation-settings:'FILL' 1;animation:pulse-ring 2s ease-out infinite;">chat</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>

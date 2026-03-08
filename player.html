@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html dir="rtl" lang="ar" class="dark">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>أدب كاست — موسوعة أدبية عربية</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800;900&family=Amiri:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="styles.css"/>
+</head>
+<body class="bg-bg-dark text-slate-100 min-h-screen">
+
+<!-- ===== TOP NAV ===== -->
+<header class="sticky top-0 z-50 bg-bg-dark/90 backdrop-blur-md border-b border-primary/10 px-4 lg:px-8 h-16 flex items-center justify-between">
+  <div class="flex items-center gap-6">
+    <!-- Logo -->
+    <a href="index.html" class="flex items-center gap-2">
+      <div class="w-8 h-8 bg-primary rounded-lg flex items-center justify-center text-bg-dark">
+        <span class="ms text-lg" style="font-variation-settings:'FILL' 1">auto_stories</span>
+      </div>
+      <span class="amiri text-xl font-bold text-primary">أدب كاست</span>
+    </a>
+    <!-- Nav links desktop -->
+    <nav class="hidden lg:flex items-center gap-1">
+      <a href="index.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الرئيسية</a>
+      <a href="library.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">المكتبة</a>
+      <a href="texts.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">النصوص</a>
+      <a href="player.html" class="nav-link active px-3 py-1.5 rounded-lg text-sm hover:text-primary">المشغّل</a>
+      <a href="submit.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">دعوة للكتابة</a>
+      <a href="studio.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">الاستوديو</a>
+      <a href="profile.html" class="nav-link px-3 py-1.5 rounded-lg text-sm hover:text-primary text-slate-400">ملفي</a>
+    </nav>
+  </div>
+  <div class="flex items-center gap-3">
+    <!-- Search -->
+    <div class="relative hidden md:block">
+      <span class="ms absolute right-3 top-1/2 -translate-y-1/2 text-primary/50" style="font-size:1.1rem">search</span>
+      <input class="pr-9 pl-4 py-2 rounded-full text-sm w-52 bg-bg-card border border-primary/20 text-slate-100 placeholder-slate-400 focus:border-primary/50 transition-colors" placeholder="ابحث عن قصيدة أو كاتب..."/>
+    </div>
+    <button class="w-9 h-9 rounded-full bg-bg-card border border-primary/20 text-primary flex items-center justify-center hover:bg-primary hover:text-bg-dark hover:border-primary transition-all">
+      <span class="ms">notifications</span>
+    </button>
+    <a href="profile.html" class="w-9 h-9 rounded-full overflow-hidden border-2 border-primary/30 block hover:border-primary/60 transition-all">
+      <img src="https://i.pravatar.cc/40?img=3" class="w-full h-full object-cover"/>
+    </a>
+  </div>
+</header>
+
+<!-- ===== PAGES WRAPPER ===== -->
+<div id="pages">
+
+<!-- ============================================================ -->
+<!-- AUDIO PLAYER PAGE -->
+<!-- ============================================================ -->
+<div id="page-player" class="page active">
+  <div class="flex-1 flex flex-col lg:flex-row gap-0 overflow-hidden">
+
+    <!-- Main Player -->
+    <main class="flex-1 px-6 lg:px-12 py-8 flex flex-col items-center">
+
+      <!-- Breadcrumb -->
+      <nav class="self-start flex items-center gap-2 text-sm text-slate-500 mb-8">
+        <a href="index.html" class="hover:text-primary">الرئيسية</a>
+        <span class="ms text-xs">chevron_left</span>
+        <span class="text-primary">المكتبة الصوتية</span>
+      </nav>
+
+      <!-- Player Card -->
+      <div class="bg-bg-card border border-primary/10 rounded-2xl p-8 lg:p-12 flex flex-col items-center w-full max-w-2xl shadow-2xl">
+        
+        <!-- Cover Art -->
+        <div class="relative group mb-8">
+          <div class="absolute -inset-4 bg-primary/20 rounded-2xl blur-2xl opacity-0 group-hover:opacity-100 transition duration-500"></div>
+          <div class="relative w-60 h-60 rounded-2xl overflow-hidden shadow-2xl">
+            <img id="player-image" src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=600&q=80" class="w-full h-full object-cover"/>
+          </div>
+        </div>
+
+        <!-- Title -->
+        <div class="text-center mb-8">
+          <h1 id="player-title" class="amiri text-3xl font-bold mb-1">نشيد النهر</h1>
+          <p id="player-artist" class="text-slate-400">بصوت: أحمد المنصوري</p>
+          <div class="flex items-center justify-center gap-2 mt-3">
+            <span class="tag">شعر عربي</span>
+            <span class="tag">فصحى</span>
+          </div>
+        </div>
+
+        <!-- Progress -->
+        <div class="w-full mb-6">
+          <div class="relative h-1.5 bg-primary/10 rounded-full overflow-hidden progress-bar" onclick="seekAudio(event)" id="progress-bar">
+            <div class="absolute right-0 top-0 h-full bg-primary rounded-full transition-all" id="progress-fill" style="width:38%"></div>
+          </div>
+          <div class="flex justify-between text-xs text-slate-500 font-bold mt-1.5">
+            <span id="time-current">02:00</span>
+            <span>05:15</span>
+          </div>
+        </div>
+
+        <!-- Controls -->
+        <div class="flex items-center justify-center gap-6 mb-6">
+          <button class="text-slate-500 hover:text-primary transition" title="عشوائي">
+            <span class="ms text-2xl">shuffle</span>
+          </button>
+          <button onclick="skipPrevious()" class="text-primary hover:scale-110 transition">
+            <span class="ms text-3xl" style="font-variation-settings:'FILL' 1">skip_previous</span>
+          </button>
+          <button onclick="togglePlay()" id="play-btn" class="relative w-20 h-20 bg-primary text-bg-dark rounded-full flex items-center justify-center shadow-lg shadow-primary/30 hover:scale-105 active:scale-95 transition-all">
+            <span class="ms text-4xl" style="font-variation-settings:'FILL' 1" id="play-icon">play_arrow</span>
+          </button>
+          <button onclick="skipNext()" class="text-primary hover:scale-110 transition">
+            <span class="ms text-3xl" style="font-variation-settings:'FILL' 1">skip_next</span>
+          </button>
+          <button class="text-slate-500 hover:text-primary transition" title="تكرار">
+            <span class="ms text-2xl">repeat</span>
+          </button>
+        </div>
+
+        <!-- Volume + extras -->
+        <div class="flex items-center gap-4 w-full max-w-xs">
+          <span class="ms text-slate-400">volume_up</span>
+          <div class="flex-1 h-1.5 bg-primary/10 rounded-full relative overflow-hidden cursor-pointer" onclick="setVolume(event)">
+            <div class="absolute right-0 top-0 h-full bg-primary rounded-full" style="width:75%" id="vol-fill"></div>
+          </div>
+          <button class="text-slate-400 hover:text-primary transition" title="أضف للقائمة">
+            <span class="ms">playlist_add</span>
+          </button>
+          <button class="text-slate-400 hover:text-primary transition" title="مشاركة">
+            <span class="ms">share</span>
+          </button>
+        </div>
+
+        <!-- Speed -->
+        <div class="mt-6 bg-bg-dark rounded-full p-1 flex gap-1 text-sm">
+          <button class="px-3 py-1 rounded-full text-slate-400 hover:text-primary">0.5×</button>
+          <button class="px-3 py-1 rounded-full text-slate-400 hover:text-primary">0.75×</button>
+          <button class="px-3 py-1 rounded-full bg-primary text-bg-dark font-bold">1×</button>
+          <button class="px-3 py-1 rounded-full text-slate-400 hover:text-primary">1.25×</button>
+          <button class="px-3 py-1 rounded-full text-slate-400 hover:text-primary">1.5×</button>
+        </div>
+      </div>
+
+      <!-- Text Snippet -->
+      <div class="bg-bg-card border border-primary/10 rounded-xl p-6 mt-6 w-full max-w-2xl">
+        <h3 class="font-bold mb-3 text-sm text-slate-400">مقتطف من النص</h3>
+        <p class="amiri text-lg leading-relaxed text-slate-200 text-center">
+          يا نهرُ، يا خيطَ الضياء الممتدّ<br/>
+          بين الجبال وعتمة الوادي الأبدي،<br/>
+          كيف يُغنّيك الصخرُ في صمته<br/>
+          وتُجيبه بالفيضِ والمدِّ؟
+        </p>
+      </div>
+
+    </main>
+
+    <!-- Playlist sidebar -->
+    <aside class="w-full lg:w-80 border-t lg:border-t-0 lg:border-r border-primary/10 bg-bg-sidebar flex flex-col" style="max-height:calc(100vh - 64px)">
+      <div class="p-5 border-b border-primary/10 flex items-center justify-between">
+        <h3 class="font-bold">قائمة التشغيل</h3>
+        <span class="tag">١٢ مادة</span>
+      </div>
+      <div class="flex-1 overflow-y-auto p-3 space-y-1.5">
+        <!-- Active -->
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl bg-primary/10 border border-primary/20 cursor-pointer" onclick="selectTrack(0)">
+          <div class="w-12 h-12 rounded-lg overflow-hidden flex-none relative">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=100&q=80" class="w-full h-full object-cover"/>
+            <div class="absolute inset-0 bg-primary/50 flex items-center justify-center">
+              <div class="flex gap-0.5 items-end h-6">
+                <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
+              </div>
+            </div>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-primary text-sm truncate">نشيد النهر</p>
+            <p class="text-xs text-primary/60 truncate">أحمد المنصوري</p>
+          </div>
+          <span class="text-xs text-primary font-bold">05:15</span>
+        </div>
+        <!-- Items -->
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 cursor-pointer transition group" onclick="selectTrack(1)">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex-none flex items-center justify-center">
+            <span class="ms text-slate-500 group-hover:hidden">music_note</span>
+            <span class="ms text-primary hidden group-hover:block" style="font-variation-settings:'FILL' 1">play_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-sm truncate">رسالة تحت الماء</p>
+            <p class="text-xs text-slate-500 truncate">ليلى السعدي</p>
+          </div>
+          <span class="text-xs text-slate-500">04:22</span>
+        </div>
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 cursor-pointer transition group" onclick="selectTrack(2)">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex-none flex items-center justify-center">
+            <span class="ms text-slate-500 group-hover:hidden">music_note</span>
+            <span class="ms text-primary hidden group-hover:block" style="font-variation-settings:'FILL' 1">play_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-sm truncate">أغنية المطر</p>
+            <p class="text-xs text-slate-500 truncate">بدر شاكر السياب</p>
+          </div>
+          <span class="text-xs text-slate-500">07:45</span>
+        </div>
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 cursor-pointer transition group" onclick="selectTrack(3)">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex-none flex items-center justify-center">
+            <span class="ms text-slate-500 group-hover:hidden">music_note</span>
+            <span class="ms text-primary hidden group-hover:block" style="font-variation-settings:'FILL' 1">play_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-sm truncate">صباح الخير يا وطني</p>
+            <p class="text-xs text-slate-500 truncate">خالد العبيد</p>
+          </div>
+          <span class="text-xs text-slate-500">03:10</span>
+        </div>
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 cursor-pointer transition group" onclick="selectTrack(4)">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex-none flex items-center justify-center">
+            <span class="ms text-slate-500 group-hover:hidden">music_note</span>
+            <span class="ms text-primary hidden group-hover:block" style="font-variation-settings:'FILL' 1">play_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-sm truncate">حكايات من الماضي</p>
+            <p class="text-xs text-slate-500 truncate">سارة جاسم</p>
+          </div>
+          <span class="text-xs text-slate-500">12:15</span>
+        </div>
+        <div class="playlist-item flex items-center gap-3 p-3 rounded-xl hover:bg-primary/5 cursor-pointer transition group" onclick="selectTrack(5)">
+          <div class="w-12 h-12 rounded-lg bg-primary/10 flex-none flex items-center justify-center">
+            <span class="ms text-slate-500 group-hover:hidden">music_note</span>
+            <span class="ms text-primary hidden group-hover:block" style="font-variation-settings:'FILL' 1">play_circle</span>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="font-bold text-sm truncate">وطن من كلمات</p>
+            <p class="text-xs text-slate-500 truncate">محمود درويش</p>
+          </div>
+          <span class="text-xs text-slate-500">08:50</span>
+        </div>
+      </div>
+    </aside>
+  </div>
+</div>
+
+</div>
+
+<!-- Floating chat button -->
+<div class="fixed bottom-7 left-7 z-[100]">
+  <button class="w-14 h-14 bg-primary text-bg-dark rounded-full shadow-2xl shadow-primary/30 flex items-center justify-center overflow-hidden relative group">
+    <span class="absolute inset-0 bg-white/20 scale-0 group-hover:scale-150 rounded-full transition-transform duration-500"></span>
+    <span class="ms text-2xl relative z-10" style="font-variation-settings:'FILL' 1;animation:pulse-ring 2s ease-out infinite;">chat</span>
+  </button>
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
